@@ -5,11 +5,13 @@
 
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
-	<link rel="stylesheet" href="assets/style.css">
+	<link rel="stylesheet" href="assets/stylesheets/style.css">
 
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+
 </head>
 <body>
 
@@ -34,7 +36,7 @@
 
 <div class="container-fluid">
 
-	<table class="table table-hover table-bordered">
+	<table class="table table-hover table-bordered" id="table">
 		<tr class="danger">
 			<th></th>
 			<th colspan="4" class="text-center">Performance monitoring dashboard </th>
@@ -51,7 +53,7 @@
 		 	<td></td>
 		 	<td></td>
 		</tr>
-		<tr>
+		<tr data-node="treetable-2" data-pnode="treetable-parent-1">
 		 	<td></td>
 		 	<td></td>
 		 	<td></td>
@@ -87,8 +89,8 @@
 			<td></td>
 			<td></td>
 		</tr>
-		<tr>
-			<td>-</td>
+		<tr data-node="treetable-1">
+			<td><span class="treetable-expander fa fa-angle-down"></span></td>
 			<td><strong>Drive maximum sales and profitability</strong></td>
 			<td>70%</td><td>94.20%</td>
 			<td></td><td></td><td></td><td></td>
@@ -96,7 +98,7 @@
 
 		<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
 		
-		<tr>
+		<tr data-node="treetable-2" data-pnode="treetable-parent-1">
 			<td></td>
 			<td>-</td>
 			<td class="text-center"><strong>Results to be achieved</strong></td>
@@ -106,7 +108,7 @@
 			<td class="text-center"><strong>Actuals</strong></td>
 			<td class="text-center"><strong>Achievement</strong></td>
 		</tr>
-		<tr>
+		<tr data-node="treetable-2" data-pnode="treetable-parent-1">
 			<td></td>
 			<td></td>
 			<td>Achieve sales as per bplan</td>
@@ -117,7 +119,7 @@
 			<td>60%</td>
 		</tr>
 		
-		<tr>
+		<tr data-node="treetable-2" data-pnode="treetable-parent-1">
 			<td></td>
 			<td></td>
 			<td>Achieve profitability</td>
@@ -128,22 +130,24 @@
 			<td>117%</td>
 		</tr>
 		
-		<tr>
+		<!-- <tr data-node="treetable-2" data-pnode="treetable-parent-1">
 			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-		</tr>
+		</tr> -->
 
-		<tr>
-			<td>-</td>
+		<tr data-node="treetable-3">
+			<td></td>
 			<td><strong>Enhance the product</strong></td>
 			<td>25%</td><td>65%</td>
 			<td></td><td></td><td></td><td></td>
 		</tr>
 		
-		<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+		<tr data-node="treetable-4" data-pnode="treetable-parent-3">
+			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		</tr>
 		
-		<tr>
+		<tr data-node="treetable-4" data-pnode="treetable-parent-3">
 			<td></td>
-			<td>-</td>
+			<td></td>
 			<td class="text-center"><strong>Results to be achieved</strong></td>
 			<td class="text-center"><strong>Assigned to</strong></td>
 			<td class="text-center"><strong>Target</strong></td>
@@ -152,7 +156,7 @@
 			<td class="text-center"><strong>Achievement</strong></td>
 		</tr>
 		
-		<tr>
+		<tr data-node="treetable-4" data-pnode="treetable-parent-3">
 			<td></td>
 			<td></td>
 			<td>Implement search functionality in the product</td>
@@ -163,7 +167,7 @@
 			<td>50%</td>
 		</tr>
 		
-		<tr>
+		<tr data-node="treetable-4" data-pnode="treetable-parent-3">
 			<td></td>
 			<td></td>
 			<td>Improve the speed of the app by 25%</td><td>Ben, CTO</td>
@@ -174,7 +178,7 @@
 		<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
 		
 		<tr>
-			<td>+</td>
+			<td></td>
 			<td>Complete the HR framework</td>
 			<td>5%</td>
 			<td>4%</td>
@@ -182,10 +186,18 @@
 		</tr>
 	</table>
 
-
-
-
 </div>
+
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="assets/javascripts/bootstrap-treefy.js"></script>
+
+	<script>
+	    $(function() {
+	        $("#table").treeFy({
+	        	initStatusClass: 'treetable-collapsed'
+	        });
+	    });
+	</script>
 	
 </body>
 </html>
