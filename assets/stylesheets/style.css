@@ -1,8 +1,13 @@
 /**
   * Perforg Stylesheet
   * @author: Shouvik Mukherjee
-/*
-* {
-   font-size: 10px;
-   line-height: 2;
+*/
+
+.header-content-inner h1 {
+	font-size: 250% !important;
+	text-transform: capitalize !important;
+}
+
+.header-content-inner p {
+	color: red;
 }
